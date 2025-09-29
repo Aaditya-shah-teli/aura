@@ -10,6 +10,7 @@ import {
   AudioWaveform,
   LogOut,
   LogIn,
+  Leaf,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -22,8 +23,9 @@ export function Header() {
 
   console.log("Header: Auth state:", { isAuthenticated, user });
   const navItems = [
-    { href: "/features", label: "Features" },
-    { href: "/about", label: "About Aura" },
+    { href: "/templates", label: "Flood Prediction" },
+    { href: "/about", label: "About it" },
+    { href: "/plant-health", label: "Plant Health", icon: Leaf },
   ];
 
   return (
@@ -35,13 +37,13 @@ export function Header() {
             href="/"
             className="flex items-center space-x-2 transition-opacity hover:opacity-80"
           >
-            <AudioWaveform className="h-7 w-7 text-primary animate-pulse-gentle" />
+            <Leaf className="h-7 w-7 text-green-600 animate-pulse-gentle" />
             <div className="flex flex-col">
-              <span className="font-semibold text-lg bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                Aura3.0
+              <span className="font-semibold text-lg bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+                Botanic Defenders
               </span>
               <span className="text-xs dark:text-muted-foreground">
-                Your mental health Companion{" "}
+                AI-Powered Agricultural Insights{" "}
               </span>
             </div>
           </Link>
@@ -52,8 +54,9 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group flex items-center gap-2"
                 >
+                  {item.icon && <item.icon className="w-4 h-4" />}
                   {item.label}
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                 </Link>
@@ -111,9 +114,10 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-md transition-colors"
+                  className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-md transition-colors flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  {item.icon && <item.icon className="w-4 h-4" />}
                   {item.label}
                 </Link>
               ))}

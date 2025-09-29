@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Therapy Agent",
-  description: "Your personal AI therapy companion",
+  title: "Botanic Defenders",
+  description: "AI-powered agricultural insights and plant disease detection",
 };
 
 export default function RootLayout({
